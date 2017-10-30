@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @flare.user.email %>
+</p>
+
+<p>
+  <strong>Region:</strong>
+  <%= @flare.region.region %>
+</p>
+
+<p>
+  <strong>Platform:</strong>
+  <%= @flare.platform.platform %>
+</p>
+
+<p>
+  <strong>Game:</strong>
+  <%= @flare.game %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @flare.description %>
+</p>
+
+<%= link_to 'Edit', edit_flare_path(@flare) %> |
+<%= link_to 'Back', flares_path %>
