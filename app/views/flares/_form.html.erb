@@ -1,0 +1,39 @@
+<%= form_with(model: flare, local: true) do |form| %>
+  <% if flare.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(flare.errors.count, "error") %> prohibited this flare from being saved:</h2>
+
+      <ul>
+      <% flare.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="field">
+    <%= form.label :region_id %>
+    <%= form.select :region_id, options_for_select(@regions), {prompt: "Select Region"} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :platform_id %>
+    <%= form.select :platform_id, options_for_select(@platforms), {prompt: "Select Platform"} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :game %>
+    <%= form.text_field :game, id: :flare_game %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :flare_description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

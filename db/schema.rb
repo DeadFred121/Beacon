@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171030004525) do
+ActiveRecord::Schema.define(version: 20171030013355) do
+
+  create_table "flares", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "region_id"
+    t.integer "platform_id"
+    t.string "game"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["platform_id"], name: "index_flares_on_platform_id"
+    t.index ["region_id"], name: "index_flares_on_region_id"
+    t.index ["user_id"], name: "index_flares_on_user_id"
+  end
 
   create_table "platforms", force: :cascade do |t|
     t.string "platform"
