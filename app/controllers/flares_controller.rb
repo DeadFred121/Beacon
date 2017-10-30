@@ -4,7 +4,13 @@ class FlaresController < ApplicationController
   # GET /flares
   # GET /flares.json
   def index
-    @flares = Flare.all
+    @regions = Region.all.map{ |region| [region.region, region.id]}
+    @platforms = Platform.all.map{ |platform| [platform.platform, platform.id]}
+    if(params.has_key?(:region_id) && params.has_key?(:platform_id))
+      @flares = Flare.where(region_id: params[:region_id], platform_id: params[:platform_id])
+    else
+      @flares = Flare.all
+    end
   end
 
   # GET /flares/1

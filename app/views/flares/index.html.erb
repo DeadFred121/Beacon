@@ -1,34 +1,44 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Flares</h1>
+<br>
+<br>
+<%= render 'shared/search_form', regions: @regions, platforms: @platforms %>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Region</th>
-      <th>Platform</th>
-      <th>Game</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% if @flares.any? %>
 
-  <tbody>
-    <% @flares.each do |flare| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= flare.user.email %></td>
-        <td><%= flare.region.region %></td>
-        <td><%= flare.platform.platform %></td>
-        <td><%= flare.game %></td>
-        <td><%= flare.description %></td>
-        <td><%= link_to 'Show', flare %></td>
-        <td><%= link_to 'Edit', edit_flare_path(flare) %></td>
-        <td><%= link_to 'Destroy', flare, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>User</th>
+        <th>Region</th>
+        <th>Platform</th>
+        <th>Game</th>
+        <th>Description</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @flares.each do |flare| %>
+        <tr>
+          <td><%= flare.user.email %></td>
+          <td><%= flare.region.region %></td>
+          <td><%= flare.platform.platform %></td>
+          <td><%= flare.game %></td>
+          <td><%= flare.description %></td>
+          <td><%= link_to 'Show', flare %></td>
+          <td><%= link_to 'Edit', edit_flare_path(flare) %></td>
+          <td><%= link_to 'Destroy', flare, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<% if @flares.blank? %>
+  <h3>There were no flares matching your query! Please try again!</h3>
+<% end %>
 
 <br>
 

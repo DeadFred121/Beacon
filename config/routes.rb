@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  get 'welcome/welcome'
+
   resources :flares
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'flares#index'
+  root 'welcome#welcome'
 end
