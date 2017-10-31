@@ -10,7 +10,6 @@
   <table>
     <thead>
       <tr>
-        <th>User</th>
         <th>Region</th>
         <th>Platform</th>
         <th>Game</th>
@@ -22,7 +21,6 @@
     <tbody>
       <% @flares.each do |flare| %>
         <tr>
-          <td><%= flare.user.email %></td>
           <td><%= flare.region.region %></td>
           <td><%= flare.platform.platform %></td>
           <td><%= flare.game %></td>
