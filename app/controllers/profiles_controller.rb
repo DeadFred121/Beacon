@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  mount_uploader :avatar, AvatarUploader
 
   # GET /profiles
   # GET /profiles.json

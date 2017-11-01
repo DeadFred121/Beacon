@@ -26,8 +26,10 @@
           <td><%= flare.game %></td>
           <td><%= flare.description %></td>
           <td><%= link_to 'Show', flare %></td>
-          <td><%= link_to 'Edit', edit_flare_path(flare) %></td>
-          <td><%= link_to 'Destroy', flare, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if flare.user == current_user %>
+            <td><%= link_to 'Edit', edit_flare_path(flare) %></td>
+            <td><%= link_to 'Destroy', flare, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
