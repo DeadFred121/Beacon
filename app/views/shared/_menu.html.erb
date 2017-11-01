@@ -15,6 +15,7 @@
         <li><%= link_to 'New Flare', new_flare_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <!-- <li class="link-item"><%= image_tag current_user.profile.avatar, class: "user-img-thumb" %></li> -->
         <li class="link-item"><%= link_to current_user.profile.name, profile_path(current_user) %></li>
         <li class="link-item"><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
       </ul>

@@ -7,17 +7,17 @@
 
 <p>
   <strong>Avatar:</strong>
-  <%= @profile.avatar %>
+  <%= image_tag @profile.avatar, class: 'img-responsive' %>
 </p>
 
 <p>
   <strong>Prefered region:</strong>
-  <%= @profile.region_id %>
+  <%= @profile.region.region %>
 </p>
 
 <p>
   <strong>Preferred platform:</strong>
-  <%= @profile.platform_id %>
+  <%= @profile.platform.platform %>
 </p>
 
 <%= link_to 'Edit', edit_profile_path(@profile) %> |

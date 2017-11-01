@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
-  mount_uploader :avatar, AvatarUploader
+  before_action :user_check, only: [:update, :destroy]
 
   # GET /profiles
   # GET /profiles.json
@@ -22,6 +22,8 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
+    @regions = Region.all.map{ |region| [region.region, region.id]}
+    @platforms = Platform.all.map{ |platform| [platform.platform, platform.id]}
   end
 
   # POST /profiles
@@ -69,6 +71,12 @@ class ProfilesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_profile
       @profile = Profile.find(params[:id])
+    end
+
+    def user_check
+      if @profile.user != current_user
+        render json: {}, status: 401
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
