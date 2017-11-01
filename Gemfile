@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Carrierwave for avatar uploading
+gem 'carrierwave', '~> 1.0'
 # Bootstrap Devise views
 gem 'devise-bootstrap-views'
 # Devise implementation

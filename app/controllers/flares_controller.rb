@@ -1,5 +1,6 @@
 class FlaresController < ApplicationController
   before_action :set_flare, only: [:show, :edit, :update, :destroy]
+  before_action :user_check, only: [:update, :destroy]
 
   # GET /flares
   # GET /flares.json
@@ -27,6 +28,8 @@ class FlaresController < ApplicationController
 
   # GET /flares/1/edit
   def edit
+    @regions = Region.all.map{ |region| [region.region, region.id]}
+    @platforms = Platform.all.map{ |platform| [platform.platform, platform.id]}
   end
 
   # POST /flares
@@ -48,6 +51,7 @@ class FlaresController < ApplicationController
 
   # PATCH/PUT /flares/1
   # PATCH/PUT /flares/1.json
+
   def update
     respond_to do |format|
       if @flare.update(flare_params)
@@ -74,6 +78,12 @@ class FlaresController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_flare
       @flare = Flare.find(params[:id])
+    end
+
+    def user_check
+      if @flare.user != current_user
+        render json: {}, status: 401
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
