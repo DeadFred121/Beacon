@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  include SearchFormLookups
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
   before_action :user_check, only: [:update, :destroy]
 
@@ -16,14 +17,10 @@ class ProfilesController < ApplicationController
   # GET /profiles/new
   def new
     @profile = Profile.new
-    @regions = Region.all.map{ |region| [region.region, region.id]}
-    @platforms = Platform.all.map{ |platform| [platform.platform, platform.id]}
   end
 
   # GET /profiles/1/edit
   def edit
-    @regions = Region.all.map{ |region| [region.region, region.id]}
-    @platforms = Platform.all.map{ |platform| [platform.platform, platform.id]}
   end
 
   # POST /profiles

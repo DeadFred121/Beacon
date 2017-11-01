@@ -1,12 +1,11 @@
 class FlaresController < ApplicationController
+  include SearchFormLookups
   before_action :set_flare, only: [:show, :edit, :update, :destroy]
   before_action :user_check, only: [:update, :destroy]
 
   # GET /flares
   # GET /flares.json
   def index
-    @regions = Region.all.map{ |region| [region.region, region.id]}
-    @platforms = Platform.all.map{ |platform| [platform.platform, platform.id]}
     if(params.has_key?(:region_id) && params.has_key?(:platform_id))
       @flares = Flare.where(region_id: params[:region_id], platform_id: params[:platform_id])
     else
@@ -22,14 +21,10 @@ class FlaresController < ApplicationController
   # GET /flares/new
   def new
     @flare = Flare.new
-    @regions = Region.all.map{ |region| [region.region, region.id]}
-    @platforms = Platform.all.map{ |platform| [platform.platform, platform.id]}
   end
 
   # GET /flares/1/edit
   def edit
-    @regions = Region.all.map{ |region| [region.region, region.id]}
-    @platforms = Platform.all.map{ |platform| [platform.platform, platform.id]}
   end
 
   # POST /flares
