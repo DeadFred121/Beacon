@@ -1,6 +1,8 @@
 class WelcomeController < ApplicationController
+  include SearchFormLookups
+  skip_before_action :authenticate_user!, only: [:welcome]
+
+
   def welcome
-    @regions = Region.all.map{ |region| [region.region, region.id]}
-    @platforms = Platform.all.map{ |platform| [platform.platform, platform.id]}
   end
 end
