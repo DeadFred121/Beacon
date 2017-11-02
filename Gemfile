@@ -5,7 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+# AWS for Carrierwave
+gem 'carrierwave-aws'
 # ENV protection
 gem 'dotenv-rails', groups: [:development, :test]
 # Carrierwave for avatar uploading
