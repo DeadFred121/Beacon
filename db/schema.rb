@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 20171031041332) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "flares", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "region_id"
-    t.integer "platform_id"
+    t.bigint "user_id"
+    t.bigint "region_id"
+    t.bigint "platform_id"
     t.string "game"
     t.string "description"
     t.datetime "created_at", null: false
@@ -36,9 +39,9 @@ ActiveRecord::Schema.define(version: 20171031041332) do
     t.string "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "region_id"
-    t.integer "platform_id"
-    t.integer "user_id"
+    t.bigint "region_id"
+    t.bigint "platform_id"
+    t.bigint "user_id"
     t.index ["platform_id"], name: "index_profiles_on_platform_id"
     t.index ["region_id"], name: "index_profiles_on_region_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
@@ -67,4 +70,10 @@ ActiveRecord::Schema.define(version: 20171031041332) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "flares", "platforms"
+  add_foreign_key "flares", "regions"
+  add_foreign_key "flares", "users"
+  add_foreign_key "profiles", "platforms"
+  add_foreign_key "profiles", "regions"
+  add_foreign_key "profiles", "users"
 end

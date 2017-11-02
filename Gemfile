@@ -5,6 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+
+# ENV protection
+gem 'dotenv-rails', groups: [:development, :test]
 # Carrierwave for avatar uploading
 gem 'carrierwave', '~> 1.0'
 # Bootstrap Devise views
@@ -13,8 +16,8 @@ gem 'devise-bootstrap-views'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use Postgres as the database for Active Record
+gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets

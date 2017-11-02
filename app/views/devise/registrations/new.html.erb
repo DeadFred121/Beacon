@@ -21,6 +21,17 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= label :profile, :region_id %>
+    <%= collection_select :profile, :region_id, Region.all, :id, :region, prompt: true %>
+  </div>
+
+  <div class="field">
+    <%= label :profile, :platform_id %>
+    <%= collection_select :profile, :platform_id, Platform.all, :id, :platform, prompt: true %>
+  </div>
+
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

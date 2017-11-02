@@ -41,5 +41,6 @@
 <% end %>
 
 <br>
-
-<%= link_to 'New Flare', new_flare_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New Flare', new_flare_path %>
+<% end %>

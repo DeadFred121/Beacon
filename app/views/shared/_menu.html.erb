@@ -12,12 +12,18 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="link-item"><%= link_to 'Flares', flares_path %></li>
-        <li><%= link_to 'New Flare', new_flare_path %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to 'New Flare', new_flare_path %></li>
+        <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <!-- <li class="link-item"><%= image_tag current_user.profile.avatar, class: "user-img-thumb" %></li> -->
-        <li class="link-item"><%= link_to current_user.profile.name, profile_path(current_user) %></li>
-        <li class="link-item"><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+        <% if user_signed_in? %>
+          <li class="link-item"><%= link_to current_user.profile.display_name, profile_path(current_user) %></li>
+          <li class="link-item"><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+        <% else %>
+          <li class="link-item"><%= link_to 'Login', new_user_session_path %></li>
+          <li class="link-item"><%= link_to 'Sign up', new_user_registration_path %></li>
+        <% end %>
       </ul>
     </div>
   </div>
