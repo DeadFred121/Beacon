@@ -19,6 +19,11 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li class="link-item"><%= link_to current_user.profile.display_name, profile_path(current_user) %></li>
+          <% if current_user.profile.pro != true %>
+            <li class="link-item"><%= link_to 'Go Pro!', new_charge_path %></li>
+          <% else %>
+            <li class="link-item">Pro User</li>
+          <% end %>
           <li class="link-item"><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
         <% else %>
           <li class="link-item"><%= link_to 'Login', new_user_session_path %></li>

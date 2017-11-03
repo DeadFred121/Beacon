@@ -6,6 +6,10 @@ git_source(:github) do |repo_name|
 end
 
 
+# Stripe for payment
+gem 'stripe'
+# AWS for Carrierwave
+gem 'carrierwave-aws'
 # ENV protection
 gem 'dotenv-rails', groups: [:development, :test]
 # Carrierwave for avatar uploading

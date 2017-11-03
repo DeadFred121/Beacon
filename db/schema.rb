@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171031041332) do
+ActiveRecord::Schema.define(version: 20171103013429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20171031041332) do
     t.bigint "region_id"
     t.bigint "platform_id"
     t.bigint "user_id"
+    t.boolean "pro", default: false
     t.index ["platform_id"], name: "index_profiles_on_platform_id"
     t.index ["region_id"], name: "index_profiles_on_region_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
