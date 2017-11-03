@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'thanks', to: 'charges#thanks', as: 'thanks'
 
   resources :profiles
+
   root 'welcome#welcome'
 
   get 'user/show'
@@ -11,6 +12,11 @@ Rails.application.routes.draw do
   get 'welcome/welcome'
 
   resources :flares
+
+  resources :conversations do
+    resources :messages
+    end
+
   devise_for :users, :controllers => { :registrations => "users/registrations" }
   resources :users, :only => [:show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -20,5 +20,11 @@
   <%= @profile.platform.platform %>
 </p>
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+<% if current_user.id != @profile.id %>
+    <%= link_to "Message #{@user.email}", conversations_path(sender_id: current_user.id, recipient_id: @user.id), :class => "btn btn-info btn-sm", method: 'post'%> |
+  <% else %>
+    <%= link_to "Your Mailbox", conversations_path, :class => "btn btn-info" %>
+    <%= link_to 'Edit', edit_profile_path(@profile), :class => "btn btn-info" %> |
+<% end %>
+
+<%= link_to 'Back', profiles_path, :class => "btn btn-info" %>

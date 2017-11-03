@@ -14,11 +14,12 @@ class ChargesController < ApplicationController
     charge = StripeTool.create_charge(customer_id: customer.id,
                                       amount: @amount,
                                       description: @description)
+
     profile = current_user.profile
     profile.pro = true
     profile.save
 
-    redirect_to thanks_path
+    render :thanks
     rescue Stripe::CardError => e
       flash[:error] = e.message
       redirect_to new_charge_path
@@ -38,8 +39,10 @@ class ChargesController < ApplicationController
       end
 
       def user_check
-        if current_user.profile.pro = true
+        user_profile = current_user.profile
+        if user_profile.pro != false
           render json: {}, status: 401
         end
+
       end
 end
