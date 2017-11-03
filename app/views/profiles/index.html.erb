@@ -19,8 +19,8 @@
         <td><%= profile.region.region %></td>
         <td><%= profile.platform.platform %></td>
         <% if profile.user == current_user %>
-          <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-          <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Edit', edit_profile_path(profile), :class => "btn btn-default" %></td>
+          <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-default" %></td>
         <% end %>
       </tr>
     <% end %>
