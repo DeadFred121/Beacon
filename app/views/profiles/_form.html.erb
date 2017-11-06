@@ -23,12 +23,12 @@
 
   <div class="field">
     <%= form.label :region_id %>
-    <%= form.select :region_id, options_for_select(@regions), { prompt: "Please choose your region"}%>
+    <%= form.select :region_id, options_for_select(@regions, profile.region_id), { prompt: "Please choose your region"}%>
   </div>
 
   <div class="field">
     <%= form.label :platform_id %>
-    <%= form.select :platform_id, options_for_select(@platforms), { prompt: "Please choose your platform"}%>
+    <%= form.select :platform_id, options_for_select(@platforms, profile.platform_id), { prompt: "Please choose your platform"}%>
   </div>
 
   <div class="actions">

@@ -1,6 +1,20 @@
 
 <%= form_with url: flares_path, method: :get, local: true do |form| %>
 
+<% if user_signed_in? %>
+
+  <div class="field">
+    <%= form.label :region_id %>
+    <%= form.select :region_id, options_for_select(regions, current_user.profile.region_id), {prompt: "Select Region"} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :platform_id %>
+    <%= form.select :platform_id, options_for_select(platforms, current_user.profile.platform_id), {prompt: "Select Platform"} %>
+  </div>
+
+<% else %>
+
   <div class="field">
     <%= form.label :region_id %>
     <%= form.select :region_id, options_for_select(regions), {prompt: "Select Region"} %>
@@ -8,8 +22,9 @@
 
   <div class="field">
     <%= form.label :platform_id %>
-    <%= form.select :platform_id, options_for_select(platforms), {prompt: "Select Platform"} %>
+    <%= form.select :platform_id, options_for_select(platforms), {prompt: "Select Platfom"} %>
   </div>
 
+<% end %>
   <%= form.submit 'Respond!' %>
 <% end %>

@@ -15,12 +15,12 @@
 
   <div class="field">
     <%= form.label :region_id %>
-    <%= form.select :region_id, options_for_select(@regions), {prompt: "Select Region"} %>
+    <%= form.select :region_id, options_for_select(@regions, current_user.profile.region_id), {prompt: "Select Region"} %>
   </div>
 
   <div class="field">
     <%= form.label :platform_id %>
-    <%= form.select :platform_id, options_for_select(@platforms), {prompt: "Select Platform"} %>
+    <%= form.select :platform_id, options_for_select(@platforms, current_user.profile.platform_id), {prompt: "Select Platform"} %>
   </div>
 
   <div class="field">
