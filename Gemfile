@@ -5,7 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+# ActiveAdmin
+gem 'activeadmin'
 # Stripe for payment
 gem 'stripe'
 # AWS for Carrierwave
@@ -16,6 +17,12 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'carrierwave', '~> 1.0'
 # Bootstrap Devise views
 gem 'devise-bootstrap-views'
+# Bootstrap J-Query rails
+gem 'jquery-rails'
+# Bootswatch gem
+gem 'bootswatch-rails'
+# Bootstrap SASS gem
+gem 'bootstrap-sass', '~> 3.3.7'
 # Devise implementation
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
