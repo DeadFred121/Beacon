@@ -71,7 +71,7 @@ Link : https://beacon-pre-queuing.herokuapp.com/
 
 ## 5. Entity Relationship Diagram
 
-(https://user-images.githubusercontent.com/30706873/32473675-8d3fc246-c3b4-11e7-8e59-738dd224f5cd.png)
+![alt text](https://user-images.githubusercontent.com/30706873/32473675-8d3fc246-c3b4-11e7-8e59-738dd224f5cd.png)
 
 ------------------
 
