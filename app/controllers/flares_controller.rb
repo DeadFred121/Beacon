@@ -1,13 +1,13 @@
 class FlaresController < ApplicationController
   include SearchFormLookups
-  before_action :set_flare, only: [:show, :edit, :update, :destroy]
-  before_action :user_check, only: [:update, :destroy]
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_flare, only: %i[show edit update destroy]
+  before_action :user_check, only: %i[update destroy]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   # GET /flares
   # GET /flares.json
   def index
-    if(params.has_key?(:region_id) && params.has_key?(:platform_id))
+    if params.key?(:region_id) && params.key?(:platform_id)
       @flares = Flare.where(region_id: params[:region_id], platform_id: params[:platform_id])
     else
       @flares = Flare.all
@@ -16,8 +16,7 @@ class FlaresController < ApplicationController
 
   # GET /flares/1
   # GET /flares/1.json
-  def show
-  end
+  def show; end
 
   # GET /flares/new
   def new
@@ -25,8 +24,7 @@ class FlaresController < ApplicationController
   end
 
   # GET /flares/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /flares
   # POST /flares.json
@@ -71,19 +69,18 @@ class FlaresController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_flare
-      @flare = Flare.find(params[:id])
-    end
 
-    def user_check
-      if @flare.user != current_user
-        render json: {}, status: 401
-      end
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_flare
+    @flare = Flare.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def flare_params
-      params.require(:flare).permit(:user_id, :region_id, :platform_id, :game, :description)
-    end
+  def user_check
+    render json: {}, status: 401 if @flare.user != current_user
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def flare_params
+    params.require(:flare).permit(:user_id, :region_id, :platform_id, :game, :description)
+  end
 end

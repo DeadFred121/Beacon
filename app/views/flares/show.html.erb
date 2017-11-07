@@ -2,7 +2,11 @@
 
 <p>
   <strong>User:</strong>
-  <%= @flare.user.profile.name %>
+  <% if @flare.user.profile.name.present? %>
+    <%= @flare.user.profile.name %>
+  <% else %>
+    <%= @flare.user.email %>
+  <% end %>
 </p>
 
 <p>

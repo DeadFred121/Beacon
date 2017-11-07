@@ -6,7 +6,7 @@ module SearchFormLookups
   end
 
   def set_lookups
-    @regions = Region.all.map{ |region| [region.region, region.id]}
-    @platforms = Platform.all.map { |platform| [platform.platform, platform.id]}
+    @regions = Region.all.map { |region| [region.region, region.id] }
+    @platforms = Platform.all.map { |platform| [platform.platform, platform.id] }
   end
 end

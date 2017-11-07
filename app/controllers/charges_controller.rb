@@ -4,8 +4,7 @@ class ChargesController < ApplicationController
   before_action :amount_to_be_charged
   before_action :set_description
 
-  def new
-  end
+  def new; end
 
   def create
     customer = StripeTool.create_customer(email: params[:stripeEmail],
@@ -14,35 +13,29 @@ class ChargesController < ApplicationController
     charge = StripeTool.create_charge(customer_id: customer.id,
                                       amount: @amount,
                                       description: @description)
-
-    profile = current_user.profile
-    profile.pro = true
+    current_user.profile.pro = true
     profile.save
 
     render :thanks
-    rescue Stripe::CardError => e
-      flash[:error] = e.message
-      redirect_to new_charge_path
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to new_charge_path
   end
 
-  def thanks
+  def thanks; end
+
+  private
+
+  def amount_to_be_charged
+    @amount = 500
   end
 
-    private
+  def set_description
+    @description = 'Beacon Pro Upgrade'
+  end
 
-      def amount_to_be_charged
-        @amount = 500
-      end
-
-      def set_description
-        @description = "Beacon Pro Upgrade"
-      end
-
-      def user_check
-        user_profile = current_user.profile
-        if user_profile.pro != false
-          render json: {}, status: 401
-        end
-
-      end
+  def user_check
+    user_profile = current_user.profile
+    render json: {}, status: 401 if user_profile.pro != false
+  end
 end
