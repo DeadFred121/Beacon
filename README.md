@@ -93,11 +93,12 @@ Link : https://beacon-pre-queuing.herokuapp.com/
 - Future Updates
 
 1. Adding rating function to site users via `Ratyrate` gem.
-2. Integrating Quality-Of-Life features:
+2. Adding auto-expiry feature for Flares set.
+3. Integrating Quality-Of-Life features:
    - Tooltips and user ability suggestions.
    - Additional Profile customisation options.
    - Ability to favourite particular Users.
-3. Adding Pro functionality to Pro accounts:
+4. Adding Pro functionality to Pro accounts:
    - Priority Flare setting.
    - Setting active time for flares.
    - Custom user display text and colors.
