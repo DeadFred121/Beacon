@@ -78,7 +78,7 @@ Link : https://beacon-pre-queuing.herokuapp.com/
 ## 6. List of Tools Used
 
 1. Trello - [Link to Trello Board](https://trello.com/b/QMM8ditp/beacon)
-2. DB designer - [Link to DB Designer]
+2. DB designer
 3. Axure
 4. Bootstrap/Bootswatch
 5. Rubocop used for code review
@@ -102,6 +102,5 @@ Link : https://beacon-pre-queuing.herokuapp.com/
    - Setting active time for flares.
    - Custom user display text and colors.
    - Saving multiple platform lists, each with specific games attached.
-   
--------------------
 
+-------------------
