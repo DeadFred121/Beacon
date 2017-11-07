@@ -17,6 +17,9 @@ class ChargesController < ApplicationController
     profile.save
 
     render :thanks
+    @user = current_user.email
+    to_email = @user
+    PurchaseMailer.send_transactional_email(to_email).deliver_now
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
