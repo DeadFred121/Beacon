@@ -13,8 +13,10 @@ class ChargesController < ApplicationController
     charge = StripeTool.create_charge(customer_id: customer.id,
                                       amount: @amount,
                                       description: @description)
-    current_user.profile.pro = true
-    profile.save
+    puts current_user.inspect
+    @user_profile = current_user.profile
+    @user_profile.pro = true
+    @user_profile.save
 
     render :thanks
     @user = current_user.email
@@ -38,7 +40,6 @@ class ChargesController < ApplicationController
   end
 
   def user_check
-    user_profile = current_user.profile
-    render json: {}, status: 401 if user_profile.pro != false
+    render json: {}, status: 401 if current_user.profile.pro != false
   end
 end
