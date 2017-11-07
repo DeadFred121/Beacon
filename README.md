@@ -1,9 +1,9 @@
-#Beacon Pre-Queuing Service
+# Beacon Pre-Queuing Service
 
 Beacon attempts to solve the problem of low local server activity in online multiplayer games by creating an alert service where players can post platform and game information for others to view and ultimately join them.
 
 
-##The project will be built in Rails 5 and PostgreSQL for the database using a combination of gems that include:
+## The project will be built in Rails 5 and PostgreSQL for the database using a combination of gems that include:
 
 Devise: User Sign-up & Login, CRUD resource access for general users.
 Mailgun: Registration and subscription email, as well as user bug-reporting.
