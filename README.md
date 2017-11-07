@@ -10,15 +10,15 @@
 6. Current bugs, future updates and others.
 7. Coding and current bugs
 
-=============
+------------------
 
 ## 1. App brief for Beacon Pre-Queuing
-----------------
+
 Beacon attempts to solve the problem of low local server population in online gaming by creating an environment in which users can alert others to their current game/region/server, creating a sort of pre-queuing service which would help in making underpopulated regions more visible, thereby increasing player traffic to those regions and allowing users to enjoy matches in a more local environment as well as allowing those players to connect with other like-minded people and potentially form lasting groups.
 
 Link : https://beacon-pre-queuing.herokuapp.com/
-
-2. Requirements
+-----------------------
+## 2. Requirements
 
 1. Create your application using Ruby on Rails
 2. Demonstrate knowledge of Rails conventions.
