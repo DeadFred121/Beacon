@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
   include SearchFormLookups
-  before_action :set_profile, only: [:show, :edit, :update, :destroy]
-  before_action :user_check, only: [:update, :destroy]
+  before_action :set_profile, only: %i[show edit update destroy]
+  before_action :user_check, only: %i[update destroy]
 
   # GET /profiles
   # GET /profiles.json
@@ -11,8 +11,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1
   # GET /profiles/1.json
-  def show
-  end
+  def show; end
 
   # GET /profiles/new
   def new
@@ -20,8 +19,7 @@ class ProfilesController < ApplicationController
   end
 
   # GET /profiles/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /profiles
   # POST /profiles.json
@@ -65,19 +63,18 @@ class ProfilesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_profile
-      @profile = current_user.profile
-    end
 
-    def user_check
-      if @profile.user != current_user
-        render json: {}, status: 401
-      end
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_profile
+    @profile = current_user.profile
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def profile_params
-      params.require(:profile).permit(:name, :avatar, :region_id, :platform_id)
-    end
+  def user_check
+    render json: {}, status: 401 if @profile.user != current_user
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def profile_params
+    params.require(:profile).permit(:name, :avatar, :region_id, :platform_id)
+  end
 end

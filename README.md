@@ -1,11 +1,19 @@
-# README
+#Beacon Pre-Queuing Service
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Beacon attempts to solve the problem of low local server activity in online multiplayer games by creating an alert service where players can post platform and game information for others to view and ultimately join them.
 
-Things you may want to cover:
 
-* Ruby version
+##The project will be built in Rails 5 and PostgreSQL for the database using a combination of gems that include:
+
+Devise: User Sign-up & Login, CRUD resource access for general users.
+Mailgun: Registration and subscription email, as well as user bug-reporting.
+Dotenv: Environmental variable protection.
+Stripe: Payment processing.
+Carrierwave: User avatar image uploading.
+Devise Bootstrap: Bootstrap Devise Styling.
+Twitter Bootstrap: Site wide Bootstrap styling.
+Bootswatch: Bootstrap templates.
+
 
 * System dependencies
 

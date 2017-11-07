@@ -7,7 +7,6 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   before_create :create_profile
 
-
   private
 
   def create_profile
