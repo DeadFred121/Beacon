@@ -3,7 +3,7 @@
 # Overview
 
 1. App Brief for Beacon Pre-Queuing
-2. Requirements
+2. Requirements and Installation
 3. Wireframing & Workflow Diagram
 4. User Stories
 5. Entity Relationship Diagram
@@ -20,7 +20,7 @@ Link : https://beacon-pre-queuing.herokuapp.com/
 
 -----------------------
 
-## 2. Requirements
+## 2. i) Requirements
 
 1. Create your application using Ruby on Rails
 2. Demonstrate knowledge of Rails conventions.
@@ -37,6 +37,20 @@ Link : https://beacon-pre-queuing.herokuapp.com/
 13. Your app will have authorisation (users have restrictions on what they can see and edit). `(No sign up is needed to search through and show flares by users. Sign up is needed to post flares. User is only able to CRUD flares and profile information they have created.)`
 16. Your app will have an admin dashboard for the admin user to administrate the site. `(ActiveAdmin)`
 17. Document your application with a README that explains how to setup, configure and use your application.
+
+## 2 ii) Installation
+
+1. Clone the repo then change into the directory.
+2. Run `bundle install` in your terminal.
+3. Run `rails db:migrate` in your terminal.
+4. Create a `.env` file in the root of the directory, then fill in these ENV variables with your details:
+   - `STRIPE_PUBLISHABLE_KEY=XXXX`
+   - `STRIPE_SECRET_KEY=XXXX`
+   - `GMAIL_DOMAIN=XXXX`
+   - `GMAIL_USERNAME=XXXX`
+   - `GMAIL_PASSWORD=XXXX`
+   - `POSTGRES_PASSWORD=XXXX`
+   
 
 --------------
 
