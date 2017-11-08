@@ -30,3 +30,17 @@
 
  // Whatever application styles you have go last
  // @import "base";
+
+.page-wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+}
+
+.splash {
+  position: relative;
+  bottom: 100px;
+}

@@ -1,33 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="page-wrapper">
+  <div class="splash">
+    <p id="notice"><%= notice %></p>
+    <h2><% if @flare.user.profile.name.present? %>
+          <%= @flare.user.profile.name %>
+        <% else %>
+          <%= @flare.user.email %>
+        <% end %> needs your help!</h2>
 
-<p>
-  <strong>User:</strong>
-  <% if @flare.user.profile.name.present? %>
-    <%= @flare.user.profile.name %>
-  <% else %>
-    <%= @flare.user.email %>
-  <% end %>
-</p>
+    <p>
+      <strong>Region:</strong>
+      <%= @flare.region.region %>
+    </p>
 
-<p>
-  <strong>Region:</strong>
-  <%= @flare.region.region %>
-</p>
+    <p>
+      <strong>Platform:</strong>
+      <%= @flare.platform.platform %>
+    </p>
 
-<p>
-  <strong>Platform:</strong>
-  <%= @flare.platform.platform %>
-</p>
+    <p>
+      <strong>Game:</strong>
+      <%= @flare.game %>
+    </p>
 
-<p>
-  <strong>Game:</strong>
-  <%= @flare.game %>
-</p>
+    <p>
+      <strong>Description:</strong>
+      <%= @flare.description %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @flare.description %>
-</p>
-
-<%= link_to 'Edit', edit_flare_path(@flare) %> |
-<%= link_to 'Back', flares_path %>
+    <%= link_to 'Edit', edit_flare_path(@flare) %> |
+    <%= link_to 'Back', flares_path %>
+  </div>
+</div>

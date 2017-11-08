@@ -1,30 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="page-wrapper">
+  <div class="splash">
 
-<p>
-  <strong>Name:</strong>
-  <%= @profile.name %>
-</p>
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Avatar:</strong>
-  <%= image_tag @profile.avatar, class: 'img-responsive' %>
-</p>
+    <p>
+      <strong>Name:</strong>
+      <%= @profile.name %>
+    </p>
 
-<p>
-  <strong>Prefered region:</strong>
-  <%= @profile.region.region %>
-</p>
+    <p>
+      <strong>Avatar:</strong>
+      <%= image_tag @profile.avatar, class: 'img-responsive' %>
+    </p>
 
-<p>
-  <strong>Preferred platform:</strong>
-  <%= @profile.platform.platform %>
-</p>
+    <p>
+      <strong>Prefered region:</strong>
+      <%= @profile.region.region %>
+    </p>
 
-<% if current_user.id != @profile.id %>
-    <%= link_to "Message #{@user.email}", conversations_path(sender_id: current_user.id, recipient_id: @user.id), :class => "btn btn-info btn-sm", method: 'post'%> |
-  <% else %>
-    <%= link_to "Your Mailbox", conversations_path, :class => "btn btn-info" %>
-    <%= link_to 'Edit', edit_profile_path(@profile), :class => "btn btn-info" %> |
-<% end %>
+    <p>
+      <strong>Preferred platform:</strong>
+      <%= @profile.platform.platform %>
+    </p>
 
-<%= link_to 'Back', profiles_path, :class => "btn btn-info" %>
+    <% if current_user.id != @profile.id %>
+        <%= link_to "Message #{@profile.user.email}", conversations_path(sender_id: current_user.id, recipient_id: @profile.user.id), :class => "btn btn-info btn-sm", method: 'post'%> |
+      <% else %>
+        <%= link_to "Your Mailbox", conversations_path, :class => "btn btn-info" %>
+        <%= link_to 'Edit', edit_profile_path(@profile), :class => "btn btn-info" %> |
+    <% end %>
+
+    <%= link_to 'Back', profiles_path, :class => "btn btn-info" %>
+  </div>
+</div>

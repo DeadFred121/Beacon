@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   include SearchFormLookups
-  before_action :set_profile, only: %i[show edit update destroy]
+  before_action :set_profile, only: %i[edit update destroy]
   before_action :user_check, only: %i[update destroy]
 
   # GET /profiles
@@ -11,7 +11,9 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1
   # GET /profiles/1.json
-  def show; end
+  def show
+    @profile = Profile.find(params[:id])
+  end
 
   # GET /profiles/new
   def new
