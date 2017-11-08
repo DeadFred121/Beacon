@@ -1,46 +1,50 @@
-<p id="notice"><%= notice %></p>
+<div class="page-wrapper">
+  <div class="splash">
 
-<h1>Flares</h1>
-<br>
-<br>
-<%= render 'shared/search_form', regions: @regions, platforms: @platforms %>
+    <p id="notice"><%= notice %></p>
 
-<% if @flares.any? %>
+    <h1>Flares</h1>
+    <br>
+    <%= render 'shared/search_form', regions: @regions, platforms: @platforms %>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Region</th>
-        <th>Platform</th>
-        <th>Game</th>
-        <th>Description</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+    <% if @flares.any? %>
 
-    <tbody>
-      <% @flares.each do |flare| %>
-        <tr>
-          <td><%= flare.region.region %></td>
-          <td><%= flare.platform.platform %></td>
-          <td><%= flare.game %></td>
-          <td><%= flare.description %></td>
-          <td><%= link_to 'Show', flare %></td>
-          <% if flare.user == current_user %>
-            <td><%= link_to 'Edit', edit_flare_path(flare) %></td>
-            <td><%= link_to 'Destroy', flare, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <table>
+        <thead>
+          <tr>
+            <th>Region |</th>
+            <th>Platform |</th>
+            <th>Game |</th>
+            <th>Description |</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @flares.each do |flare| %>
+            <tr>
+              <td><%= flare.region.region %></td>
+              <td><%= flare.platform.platform %></td>
+              <td><%= flare.game %></td>
+              <td><%= flare.description %></td>
+              <td><%= link_to 'Aid them!', flare %></td>
+              <% if flare.user == current_user %>
+                <td><%= link_to 'Edit', edit_flare_path(flare) %></td>
+                <td><%= link_to 'Delete', flare, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% end %>
+            </tr>
           <% end %>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% end %>
+        </tbody>
+      </table>
+    <% end %>
 
-<% if @flares.blank? %>
-  <h3>There were no flares matching your query! Please try again!</h3>
-<% end %>
+    <% if @flares.blank? %>
+      <h3>There were no flares matching your query! Please try again!</h3>
+    <% end %>
 
-<br>
-<% if user_signed_in? %>
-  <%= link_to 'New Flare', new_flare_path, :class => "btn btn-success" %>
-<% end %>
+    <br>
+    <% if user_signed_in? %>
+      <%= link_to 'Create a New Flare', new_flare_path, :class => "btn btn-success" %>
+    <% end %>
+  </div>
+</div>
