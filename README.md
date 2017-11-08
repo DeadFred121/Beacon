@@ -103,5 +103,6 @@ Link : https://beacon-pre-queuing.herokuapp.com/
    - Setting active time for flares.
    - Custom user display text and colors.
    - Saving multiple platform lists, each with specific games attached.
+5. Update styling
 
 -------------------
