@@ -1,5 +1,5 @@
 <div class="page-wrapper">
-  <div class="splash">
+  <div class="center-box">
 
     <p id="notice"><%= notice %></p>
 
@@ -18,11 +18,7 @@
       <tbody>
         <% @profiles.each do |profile| %>
           <tr>
-            <% if profile.name.present? %>
-              <td><%= link_to profile.name, profile %></td>
-              <% else %>
-                <td><%= link_to profile.user.email, profile %></td>
-              <% end %>
+            <td><%= link_to profile.display_name, profile %></td>
             <td><%= profile.region.region %></td>
             <td><%= profile.platform.platform %></td>
             <% if profile.user == current_user %>

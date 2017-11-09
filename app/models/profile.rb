@@ -11,4 +11,5 @@ class Profile < ApplicationRecord
       name
     end
   end
+  
 end

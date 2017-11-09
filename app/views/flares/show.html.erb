@@ -1,11 +1,7 @@
 <div class="page-wrapper">
-  <div class="splash">
+  <div class="center-box">
     <p id="notice"><%= notice %></p>
-    <h2><% if @flare.user.profile.name.present? %>
-          <%= @flare.user.profile.name %>
-        <% else %>
-          <%= @flare.user.email %>
-        <% end %> needs your help!</h2>
+    <h2><%= @flare.user.profile.display_name %> needs your help!</h2>
 
     <p>
       <strong>Region:</strong>
