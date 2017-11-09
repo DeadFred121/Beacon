@@ -93,7 +93,7 @@ Link : https://beacon-pre-queuing.herokuapp.com/
 
 1. Trello - [Link to Trello Board](https://trello.com/b/QMM8ditp/beacon)
 2. DB designer
-3. Axure
+3. Figma
 4. Bootstrap/Bootswatch
 5. Rubocop used for code review
 6. Gems: `stripe, carrierwave-aws, dotenv-rails, carrierwave, devise-bootstrap-views, jquery-rails, bootswatch-rails, bootstrap-sass, devise`
