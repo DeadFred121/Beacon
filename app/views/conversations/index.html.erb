@@ -1,17 +1,17 @@
 <div class="page-wrapper">
-  <div class="splash">
+  <div class="center-box">
     <div class="ui segment">
       <h3>Active Conversations:</h3>
       <div class="ui list">
         <div class="item">
           <% @conversations.each do |conversation| %>
-            <% if conversation.sender_id == current_user.id ||      conversation.recipient_id == current_user.id %>
+            <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
               <% if conversation.sender_id == current_user.id %>
                 <% recipient = User.find(conversation.recipient_id) %>
               <% else %>
                 <% recipient = User.find(conversation.sender_id) %>
               <% end %>
-              <%= link_to recipient.email,   conversation_messages_path(conversation)%>
+              <%= link_to recipient.profile.display_name, conversation_messages_path(conversation)%>
             <% end %>
           <% end %>
         </div>

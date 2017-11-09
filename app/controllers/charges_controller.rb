@@ -13,15 +13,15 @@ class ChargesController < ApplicationController
     charge = StripeTool.create_charge(customer_id: customer.id,
                                       amount: @amount,
                                       description: @description)
-    puts current_user.inspect
-    @user_profile = current_user.profile
-    @user_profile.pro = true
-    @user_profile.save
+    user_profile = current_user.profile
+    user_profile.pro = true
+    user_profile.save
 
     render :thanks
     @user = current_user.email
     to_email = @user
     PurchaseMailer.send_transactional_email(to_email).deliver_now
+    
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
